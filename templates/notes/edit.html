@@ -1,0 +1,72 @@
+
+{% extends 'notes/base.html' %}
+{% block title %}Edit Note - Keep It{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg position-relative">
+                <a href="{% url 'home' %}" class="position-absolute top-0 end-0 m-3" title="Cancel">
+                    <i class="bi bi-x-lg "></i>
+                </a>
+
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold">
+                            <i class="bi bi-pencil-square text-primary"></i> Edit Note
+                        </h2>
+                        
+                    </div>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <div class="mb-4">
+                            <label for="title" class="form-label fw-semibold">
+                                <i class="bi bi-type"></i> Title
+                            </label>
+                            <input type="text" 
+                                   class="form-control form-control-lg" 
+                                   id="title" 
+                                   name="title" 
+                                   value="{{ note.title }}"
+                                   placeholder="Enter a catchy title for your note..."
+                                   required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="content" class="form-label fw-semibold">
+                                <i class="bi bi-textarea-t"></i> Content
+                            </label>
+                            <textarea class="form-control" 
+                                      id="content" 
+                                      name="content" 
+                                      rows="10" 
+                                      placeholder="Write your thoughts here..."
+                                      required>{{ note.content }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <small class="text-muted">
+                                <i class="bi bi-clock-history"></i> 
+                                Created: {{ note.created|date:"F d, Y at g:i A" }}
+                            </small>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                
+                                <i class="bi bi-check-circle"></i> Update Note
+                            </button>
+                            <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-arrow-left"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -9,7 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # ⚠️ DEBUG should be False in production
-DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
+
 
 # ✅ Allow all hosts for now (change in production)
 ALLOWED_HOSTS = ['*']
@@ -93,6 +94,7 @@ USE_TZ = True
 # ✅ Static files settings
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
   # Optional: if you have a global /static folder
 
 # ✅ Default primary key field type

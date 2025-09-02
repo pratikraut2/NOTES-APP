@@ -1,11 +1,12 @@
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # ⚠️ SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b@qzza*9#0e((kkb6(3b0xj*bus62tv1+54f7j#ztb7%0hwctp'
+SECRET_KEY = config('SECRET_KEY')
 
 # ⚠️ DEBUG should be False in production
 DEBUG = True
@@ -33,6 +34,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',  # Required for login/logout
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'Keep_It.urls'
@@ -89,8 +91,9 @@ USE_TZ = True
 
 
 # ✅ Static files settings
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]   # Optional: if you have a global /static folder
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+  # Optional: if you have a global /static folder
 
 # ✅ Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

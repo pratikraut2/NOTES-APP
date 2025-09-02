@@ -144,9 +144,9 @@ body::before {
     line-height: 1.6;
     margin-bottom: 1.5rem;
     font-weight: 400;
-    color: #ffffff;
-    
+    color: #fff !important;
 }
+
 
 /* Buttons */
 .btn {

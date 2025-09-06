@@ -13,16 +13,6 @@ This project helps users to **create, edit, and manage notes** in an organized w
 
 ---
 
-## 📸 Screenshots  
-
-### Dashboard  
-![](static/images/dashboard.png)  
-
-### Notes Page  
-![](static/images/notes.png)  
-
----
-
 ## 🎥 Demo Video  
 
 [![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)  
